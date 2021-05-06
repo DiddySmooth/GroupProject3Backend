@@ -13,7 +13,7 @@ cartController.getAll = async (req, res) => {
                 userId: decryptedId.userId
             }
         })
-
+        
         res.send(cart)
     } catch (error) {
         res.send(error)
