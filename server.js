@@ -8,9 +8,10 @@ app.use(express.json())
 app.use(require('cors')())
 
 const userRoutes = require('./routes/userRoutes')
+const productRoutes = require('./routes/productRoutes')
 
 app.use('/user', userRoutes)
-
+app.use('/producs', productRoutes)
 
 
 const PORT = process.env.PORT || 3001

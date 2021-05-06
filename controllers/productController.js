@@ -22,7 +22,6 @@ productController.getAll = async (req, res) => {
         res.send(products)
     } catch (error) {
         res.send(error)
-
     }
 }
 
