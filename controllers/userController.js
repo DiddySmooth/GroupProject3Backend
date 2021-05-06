@@ -1,20 +1,24 @@
 const e = require('express')
 const models = require('../models')
-
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
 const userController = {}
 
-userController.creatUser = async (req, res) =>{
+userController.createUser = async (req, res) =>{
+    console.log(req)
     try {
         const hashedPassword = bcrypt.hashSync(req.body.password, 10)
 
+        
         const user = await models.user.create({
             name: req.body.name,
             email:req.body.email,
-            password: req.body.password
+            password: hashedPassword
         })
         const encryptedId = jwt.sign({ userId: user.id }, process.env.JWT_SECRET)
-        res.json({user})
+        res.json({user, encryptedId})
     } catch (error) {
         console.log(error)
         res.json({error})
@@ -28,7 +32,9 @@ userController.login = async (req,res) => {
                 email: req.body.email
             }
         })
+        console.log(user.password, req.body.password)
         if (bcrypt.compareSync(req.body.password, user.password)){
+            console.log("asdfasdfasd")
             const encryptedId = jwt.sign({ userId: user.id }, process.env.JWT_SECRET)
             res.json({user, encryptedId})
         }
