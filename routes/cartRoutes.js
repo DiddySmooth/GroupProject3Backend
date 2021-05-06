@@ -1,7 +1,7 @@
 const cartRoutes = require('express').Router()
 const cartController = require('../controllers/cartController')
 cartRoutes.get('/', cartController.getAll)
-cartRoutes.put('/:id', cartController.put)
+cartRoutes.post('/:id', cartController.post)
 cartRoutes.delete('/', cartController.delete)
 cartRoutes.delete('/all', cartController.deleteAll)
 
