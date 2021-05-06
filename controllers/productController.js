@@ -3,7 +3,7 @@ const models = require('../models')
 
 const productController = {}
 
-productController.getOne =  (req, res) => {
+productController.getOne = async (req, res) => {
     try {
         const product = await models.product.findOne({
             where:{
