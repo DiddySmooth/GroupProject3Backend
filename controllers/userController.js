@@ -1,6 +1,8 @@
 const e = require('express')
 const models = require('../models')
-
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
 const userController = {}
 
@@ -11,7 +13,7 @@ userController.creatUser = async (req, res) =>{
         const user = await models.user.create({
             name: req.body.name,
             email:req.body.email,
-            password: req.body.password
+            password: hashedPassword
         })
         const encryptedId = jwt.sign({ userId: user.id }, process.env.JWT_SECRET)
         res.json({user})
