@@ -18,9 +18,11 @@ productController.getOne = (req, res) => {
 
 productController.getAll = async (req, res) => {
     try {
-        
+        const products = await models.product.findAll()
+        res.send(products)
     } catch (error) {
-        
+        res.send(error)
+
     }
 }
 
