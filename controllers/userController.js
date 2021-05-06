@@ -11,10 +11,10 @@ userController.creatUser = async (req, res) =>{
         const user = await models.user.create({
             name: req.body.name,
             email:req.body.email,
-            password: req.body.password
+            password: hashedPassword
         })
         const encryptedId = jwt.sign({ userId: user.id }, process.env.JWT_SECRET)
-        res.json({user})
+        res.json({user, encryptedId})
     } catch (error) {
         console.log(error)
         res.json({error})
