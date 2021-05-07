@@ -10,10 +10,12 @@ app.use(require('cors')())
 const userRoutes = require('./routes/userRoutes')
 const productRoutes = require('./routes/productRoutes')
 const cartRoutes = require('./routes/cartRoutes')
+const orderRoutes = require('./routes/orderRoutes')
 
 app.use('/user', userRoutes)
 app.use('/products', productRoutes)
 app.use('/cart', cartRoutes)
+app.use('/orders', orderRoutes)
 
 
 const PORT = process.env.PORT || 3001
