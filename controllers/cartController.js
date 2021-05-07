@@ -20,22 +20,7 @@ cartController.getAll = async (req, res) => {
         console.log(cart)
         res.send(cart)
 
-        // const cart = await models.cart.findAll({
-        //     where: {
-        //         id: 2
 
-        //     }
-        // }
-        // )
-        // console.log(cart)
-        // const user = await models.user.findOne({
-        //     where:{
-        //         userId: decryptedId.userId
-        //     }
-        // })
-        // let cart = await user.getCarts()
-        // console.log(cart.userId)
-        // res.send(cart)
     } catch (error) {
         res.send(error)
     }
@@ -59,30 +44,36 @@ cartController.post = async (req, res) => {
 
 cartController.delete = async (req, res) => {
     try {
-        console.log(req.body.id)
+        console.log(req.headers)
         const cart = await models.cart.destroy({
             where: {
-                id: req.body.id
+                id: req.headers.id
             }
         })
+        console.log(cart)
 
-        res.send(cart)
+
+        res.send("Delete")
     } catch (error) {
         res.send(error)
     }
 }
 
 cartController.deleteAll = async (req, res) => {
+    console.log(req.headers)
     try {
-        const decryptedId = jwt.verify(req.body.userId, process.env.JWT_SECRET)
+        const decryptedId = jwt.verify(req.headers.userid, process.env.JWT_SECRET)
 
+        console.log(decryptedId)
         const cart = await models.cart.destroy({
             where: {
-                userId: decryptedId.userId,
+                userId: decryptedId.userId
             }
         })
+        console.log(cart)
+ 
 
-        res.send(cart)
+        res.send("delete")
     } catch (error) {
         res.send(error)
     }
