@@ -23,15 +23,15 @@ module.exports = {
       {
          name: "RTX 3080",
          description: "bigger fast",
-         image: "https://i.imgur.com/mOlfFAb.jpg",
+         image: "https://images.stockx.com/images/NVIDIA-GeForce-RTX-3080-Graphics-Card-Founders-Edition.png",
          price: 6999,
          createdAt: new Date(),
          updatedAt: new Date()
       },
       {
-         name: "RTX 2070",
+         name: "  ",
          description: "fast",
-         image: "https://i.imgur.com/mOlfFAb.jpg",
+         image: "https://static.techspot.com/images/products/2019/graphics-cards/org/2019-07-02-product-12.jpg",
          price: 2499,
          createdAt: new Date(),
          updatedAt: new Date()
