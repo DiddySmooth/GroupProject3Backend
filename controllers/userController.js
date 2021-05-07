@@ -7,7 +7,7 @@ require('dotenv').config()
 const userController = {}
 
 userController.createUser = async (req, res) =>{
-    console.log(req)
+    console.log(req.body)
     try {
         const hashedPassword = bcrypt.hashSync(req.body.password, 10)
 
