@@ -59,8 +59,8 @@ cartController.post = async (req, res) => {
 
 cartController.delete = async (req, res) => {
     try {
-        console.log(req.body.id)
-        const cart = await models.cart.destroy({
+
+        const cart = await models.cart.findOne({
             where: {
                 id: req.body.id
             }
