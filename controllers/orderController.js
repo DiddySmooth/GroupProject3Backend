@@ -1,7 +1,7 @@
 const e = require('express')
 const models = require('../models')
 const jwt = require('jsonwebtoken')
-require('dotenv').config()
+require('dotenv').config();
 
 const orderController = {}
 
