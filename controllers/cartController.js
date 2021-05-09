@@ -77,6 +77,7 @@ cartController.deleteAll = async (req, res) => {
     } catch (error) {
         res.send(error)
     }
+    
 }
 
 module.exports = cartController;
